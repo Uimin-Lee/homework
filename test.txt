@@ -1,0 +1,27 @@
+<script>
+
+int a, b, c, y, m, d;
+
+function Date(y,m,d)
+{
+ 
+    if(m <= 2)
+    {
+        m += 12;
+        y--;
+    }
+ 
+    a = y % 100; 
+    b = y / 100;
+    c = 21*b/4 + 5*a/4 + 13*(m+1)/5 + d - 1;
+ 
+    if(c < 0) c += 7; 
+ 
+    return c % 7;
+}
+
+
+    char yoil[][7]={"일요일","월요일","화요일","수요일","목요일","금요일","토요일"};
+    alert(yoil[Date(2003, 1, 17)]) ;
+
+</script>
