@@ -1,0 +1,56 @@
+<script>
+    function Music(title, artist, album, release, genre) {
+        this.title = titie // 제목
+        this.artist = artist // 아티스트명
+        this.album = album //앨범명
+        this.release = release //발매일 
+        this.genre = genre  //장르 
+       
+        this.favor = "-"; // 곡 좋아요 여부 판단
+        this.like = function() {    
+            this.l = "Like"
+        }
+        this.dislike = function(){     
+            this.l = "-"
+        }
+
+        this.tellFavor = function(){
+            alert(this.favor)
+        }
+
+        this.tell = function(){
+            alert(this.title + " " + this.artist + " " + this.genre)
+        } // 곡 정보 출력
+    }
+
+    function Playlist(name){
+        this.name = name // 플레이리스트 제목
+        this.list = [] // 리스트
+        
+        this.add = function(title, artist, album, release, genre){
+            var newMusic = new Music(title, artist, album, release, genre)
+            this.list.unshift(newMusic)
+            return;
+        } //리스트 상단에 새 음악 추가
+
+        this.delete = function(musicNumber){
+            this.list[musicNumber] = this.list[this.list.length-1];
+            this.list.pop()
+            return;
+        } //리스트에서 제거할 음악 입력받아서 마지막 음악과 바꿔주고 마지막 음악 제거
+
+        this.tell = function(){
+            for (var i = 0; i < this.list.length; i++)
+            {
+                alert(this.list[i].title)
+            }
+            return;
+        } //리스트에 존재하는 음악 출력
+    }
+
+    var Uimin = new Playlist("Favorite Musics"); // 플레이리스트 생성
+    Uimin.add("눈물나게","정승환, 이시은", "눈물나게", "2017.02.24", "Ballad"); // 리스트 안에 음악 삽입
+    Uimin.add("제발","이소라", "꽃", "2000.10.14", "Ballad"); // 리스트 안에 음악 삽입
+    Uimin.list[0].tellFavor(); //
+
+</script>
